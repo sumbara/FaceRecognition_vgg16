@@ -16,21 +16,11 @@ def predict_from_pretrained(image):
     n_class = 991
 
     test_batch = []
-    print(image.shape)
-    print(1)
 
     img = resize_with_pad(image)
-    print(img.shape)
-    print(2)
-
     img = img.reshape((1, 224, 224, 3))
-    print(img.shape)
-    print(3)
-
     data = np.asarray(img)
-    print(data.shape)
-    print(3)
-
+    
     with tf.Session() as sess:
         images = tf.placeholder(tf.float32, [None, 224, 224, 3])
         train_mode = tf.placeholder(tf.bool)
